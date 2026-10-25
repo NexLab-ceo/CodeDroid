@@ -5,12 +5,7 @@ import { oneDark } from "@codemirror/theme-one-dark";
 import { askAssistant, type ChatMessage, type ProviderMode } from "./ai";
 import { Bot, Files, Play, Send, Settings2, Terminal } from "lucide-react";
 
-const starter = `function greet(name: string) {
-  return `Hello, ${name}!`;
-}
-
-console.log(greet("CodePilot"));
-`;
+const starter = 'function greet(name: string) {\n  return "Hello, " + name + "!";\n}\n\nconsole.log(greet("CodePilot"));\n';
 
 export default function App() {
   const [code, setCode] = useState(starter);
@@ -49,8 +44,8 @@ export default function App() {
     </header>
     {showSettings && <section className="settings-panel">
       <label>AI mode<select value={mode} onChange={e => setMode(e.target.value as ProviderMode)}><option value="auto">Auto (local → cloud)</option><option value="local">Local</option><option value="cloud">Cloud</option></select></label>
-      <label>Local model<input value={model} onChange={e => setModel(e.target.value}/></label>
-      <label>Local endpoint<input value={localUrl} onChange={e => setLocalUrl(e.target.value}/></label>
+      <label>Local model<input value={model} onChange={e => setModel(e.target.value)} /></label>
+      <label>Local endpoint<input value={localUrl} onChange={e => setLocalUrl(e.target.value)} /></label>
     </section>}
     <main className="workspace">
       <aside className="activitybar"><button className="activity active" title="Files"><Files size={20}/></button><button className="activity" title="Terminal"><Terminal size={20}/></button><button className="activity" title="AI"><Bot size={20}/></button></aside>
