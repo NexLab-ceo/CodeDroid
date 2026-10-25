@@ -76,7 +76,7 @@ class MainActivity : ComponentActivity() {
 }
 
 private const val starterCode = """fun greet(name: String): String {
-    return "Hello, ${'
+    return "Hello, " + name + "!";
 }
 
 fun main() {
